@@ -7,6 +7,6 @@ public class checkStringLength {
     }
 
     public static boolean checkTextLength(String stringToCheck) {
-        return stringToCheck.length() > 10;
+        return false;
     }
 }
