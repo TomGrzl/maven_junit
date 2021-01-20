@@ -1,22 +1,23 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class checkStringLengthTest {
 
-    @Test
-    void checkStringLengthTestOverTenChars() {
-        //given
-        String S = "Über10Zeichen";
-
+    @ParameterizedTest
+    @CsvSource({"Drei, false", "hallodudaa, false", "wiegehtsdirdennso, true"} )
+    void checkStringLengthTest(String S, boolean expectedResult) {
         //when
         boolean result = checkStringLength.checkTextLength(S);
 
         //then
-        assertEquals(true, result);
+        assertEquals(expectedResult, result);
 
     }
 
-    @Test
+    /* @Test
     void checkStringLengthTestUnderTenChars() {
         //given
         String S = "unter10";
@@ -40,5 +41,5 @@ public class checkStringLengthTest {
         //then
         assertEquals(false, result);
 
-    }
+    } */
 }
